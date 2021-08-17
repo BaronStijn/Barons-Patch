@@ -4,7 +4,7 @@
 ----------------------------------------------------------------
 
 * The Miyamoto! level editor is made by AboodXD
-* Download Miyamoto! here: `https://github.com/aboood40091/Miyamoto`
+* Download Miyamoto! here: https://github.com/aboood40091/Miyamoto
 
 ----------------------------------------------------------------
 
