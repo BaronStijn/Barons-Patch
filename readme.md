@@ -2,10 +2,15 @@
 ## A patch For the Miyamoto! level editor
 `Beta Version 1.0.2`
 
+Download Miyamoto! here: https://github.com/aboood40091/Miyamoto
+
 ----------------------------------------------------------------
 
-* The Miyamoto! level editor is made by AboodXD
-* Download Miyamoto! here: https://github.com/aboood40091/Miyamoto
+
+## Credits
+
+* The Miyamoto! level editor is made by *AboodXD
+* Info about Beanstalk Leaves from *Rimea
 
 ----------------------------------------------------------------
 
