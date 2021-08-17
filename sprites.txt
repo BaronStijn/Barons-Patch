@@ -208,6 +208,105 @@ class SpriteImage_Path(SLib.SpriteImage_StaticMultiple):  # 100
         SLib.loadIfNotInImageCache('Path', 'path.png')
 
 
+class SpriteImage_ControllerSwaying_Path(SLib.SpriteImage_MovementController):  # 116
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['ControllerSwaying_Path'],
+        )
+
+        self.aux.append(SLib.AuxiliaryRotationAreaOutline(parent, 60))
+        self.aux.append(SLib.AuxiliaryRotationAreaOutline(parent, 120))
+
+        self.rotation = 0
+        self.startOffset = 0
+        self.arc = 0
+        self.eventActivated = False
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('ControllerSwaying_Path', 'controller_swaying_path.png')
+
+    def dataChanged(self):
+        self.startOffset = (self.parent.spritedata[2] & 0xF) * 22.5 + 90
+        self.eventActivated = (self.parent.spritedata[4] & 0x40) != 0
+        reversedDir = ((self.parent.spritedata[4] >> 4) & 1) != 0
+        self.arcMiddleRotation = (self.parent.spritedata[4] & 0xF) * 22.5
+        self.delay = self.parent.spritedata[6] & 0xF0
+        self.arc = (self.parent.spritedata[7] >> 4) * 22.5
+        self.rotationSpeed = ((self.parent.spritedata[7] & 0xF) / 0x800) * 360
+
+        if reversedDir:
+            self.startOffset += 180
+        
+        self.rotation = math.cos(math.radians(self.startOffset))
+            
+        self.aux[0].SetAngle(90 + self.arcMiddleRotation - self.arc * 0.5, self.arc)
+        self.aux[1].SetAngle(90 + self.arcMiddleRotation - self.rotation * self.arc * 0.5, 0)
+
+        super().dataChanged()
+
+    def active(self):
+        return not self.eventActivated
+
+    def getStartRotation(self):
+        if not self.eventActivated:
+            self.rotation = math.cos(math.radians(self.startOffset - SLib.RotationFrame * self.rotationSpeed * (60 / SLib.RotationFPS)))
+
+        return -self.arcMiddleRotation + self.rotation * self.arc * 0.5
+
+
+class SpriteImage_ControllerSpinning_Path(SLib.SpriteImage_MovementController):  # 118
+    Speeds = [0x400000, 0x800000, 0xc00000, 0x1000000, 0x200000, 0x2000000, 0x4000000, 0x100000]
+
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['ControllerSpinning_Path'],
+        )
+        self.aux.append(SLib.AuxiliaryRotationAreaOutline(parent, 60))
+        self.aux.append(SLib.AuxiliaryRotationAreaOutline(parent, 120))
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('ControllerSpinning_Path', 'controller_spinning_path.png')
+
+    def dataChanged(self):
+        self.rotation = (self.parent.spritedata[2] >> 4) * 22.5
+        arc = (self.parent.spritedata[2] & 0xF) * 22.5
+        self.spinMode = self.parent.spritedata[3] & 3
+        reversedDir = ((self.parent.spritedata[4] >> 4) & 1) != 0
+        speedValue = self.parent.spritedata[7] & 0xF
+
+        if speedValue > 7:
+            speedValue = 4
+
+        self.rotationSpeed = (SpriteImage_ControllerSpinning_Path.Speeds[speedValue] / 0x100000000) * 360
+
+        if reversedDir:
+            self.rotation = -self.rotation
+            self.rotationSpeed = -self.rotationSpeed
+
+        if self.spinMode == 1:
+            arc = 360
+
+        self.aux[0].SetAngle(90 + self.rotation - (arc if reversedDir else 0), arc)
+        self.aux[1].SetAngle(90 + self.rotation, 0)
+        self.parent.updateScene()
+        super().dataChanged()
+
+    def active(self):
+        return self.spinMode == 1
+
+    def getStartRotation(self):
+        if self.spinMode == 1:
+            return -self.rotation - SLib.RotationFrame * self.rotationSpeed * (60 / SLib.RotationFPS)
+        else:
+            return -self.rotation
+        
+
 class SpriteImage_FallingIcicle(SLib.SpriteImage_StaticMultiple):  # 183
     def __init__(self, parent):
         super().__init__(
@@ -242,5 +341,7 @@ ImageClasses = {
     29: SpriteImage_LimitU,
     30: SpriteImage_LimitD,
     100: SpriteImage_Path,
+    116: SpriteImage_ControllerSwaying_Path,
+    118: SpriteImage_ControllerSpinning_Path,
     183: SpriteImage_FallingIcicle,
 }
