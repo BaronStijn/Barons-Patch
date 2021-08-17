@@ -3,8 +3,8 @@
 
 ----------------------------------------------------------------
 
-* The Miyamoto! level editor is made by AboodXD: https://www.youtube.com/channel/UCiYHjHi3WegWFQNC_Rnap0Q
-* Download Miamoto! here: https://github.com/aboood40091/Miyamoto
+* The Miyamoto! level editor is made by AboodXD
+* Download Miyamoto! here: `https://github.com/aboood40091/Miyamoto`
 
 ----------------------------------------------------------------
 
@@ -18,4 +18,4 @@ If done corectly it should now work.
 
 ----------------------------------------------------------------
 
-Made for Miyamoto-version 29
+`Made for Miyamoto-version 29`
