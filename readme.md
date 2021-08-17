@@ -1,6 +1,6 @@
-`Release 1`
 # Miyamoto+
 ## A patch For the Miyamoto! level editor
+`Release 1`
 
 ----------------------------------------------------------------
 
