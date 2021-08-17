@@ -1,6 +1,6 @@
 # Miyamoto+
 ## A patch For the Miyamoto! level editor
-`Version 1.1`
+`Version 1.0.1`
 
 ----------------------------------------------------------------
 
