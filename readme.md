@@ -10,7 +10,7 @@
 
 ## Setup
 
-Unzip the file in \miyamotodata\patches\ From your Miyamoto folder.
+Unzip the file in \miyamotodata\patches from your Miyamoto folder.
 
 Open Miyamoto and go to File > Change Game > Miyamoto+.
 
