@@ -6,6 +6,7 @@
     <file name="sprites" path="sprites.txt" patch="True" />
     <file name="spritedata" path="spritedata.xml" patch="True" />
     <file name="music" path="music.txt" patch="False" />
+    <file name="levelnames" path="levelnames.xml" patch="False" />
 
 
 </game>
