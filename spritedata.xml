@@ -1,24 +1,29 @@
 <?xml version="1.0"?>
 <sprites>
+
+
 	<sprite id="396" name="Beanstalk Leaf">
-		<value nybble="5-7" title="Spawn Delay" comment="Controls the delay before the leaf spawns. Can be set up to 4095."/>
+		<value nybble="5-7" title="Spawn Delay" comment="Amount of delay before the leaf spawns. Can be set up to 4095."/>
 		<value nybble="10" title="Respawn Related" comment="Use values 0-3. See 'Spawn state' for more info."/>
-		<list nybble="11" title="Start Color">
-			<entry value="0">Red</entry>
+		<list nybble="11" title="Start Color" comment="value 0 makes the leaf bouncy. It only works with 'Size' set to Medium or Large.">
+			<entry value="0">Red (Bouncy)*</entry>
 			<entry value="1">Green</entry>
 		</list>
-		<list nybble="12" title="Direction" comment="If set to 0, the leaf will grow to the left. If set to 1, the leaf will grow to the right.">
+		<list nybble="12" title="Direction" comment="Controls the dirrection of the leaf">
 			<entry value="0">Left</entry>
 			<entry value="1">Right</entry>
+			<entry value="2">Left (Steep Upwards)</entry>
+			<entry value="3">Right (Steep Upwards)</entry>
+			<entry value="4">Left (Gentle Upwards)</entry>
+			<entry value="5">Right (Gentle Upwards)</entry>
 		</list>
 		<list nybble="13" title="Spawn State" comment="*Value 2 only works if there are at least 4 leaves with this value present. Those 4 leaves will have to take up values 0-3 from 'Respawn Related'.">
 			<entry value="0">Normal</entry>
 			<entry value="1">Already Grown</entry>
 			<entry value="2">Respawn*</entry>
 		</list>
-		<value nybble="15" title="Unknown Value 15"/>
-		<value nybble="16" title="Unknown Value 16"/>
-		<value nybble="17" title="Duration until fall off" comment="Amount of seconds after the growth it will fall off. Whatever value you set it to, it will always last 3 seconds longer. (Somehow, this is not working properly yet, we may have the wrong nybble actually.) Duration = Value + 3 (in seconds)"/>
+		<value nybble="15" title="Sprout Delay" comment="Amount delay between the bud appearing and the leaf growing"/>
+		<value nybble="16-17" title="Duration until fall off" comment="Amount of delay before the leaf falls off"/>
 		<list nybble="18" title="Size" comment="The leaf's size. ">
 			<entry value="0">Small (3 Blocks)</entry>
 			<entry value="1">Medium (6 Blocks)</entry>
@@ -26,4 +31,32 @@
 		</list>
 		<value nybble="22" title="Beanstalk ID" comment="Link this up with the Beanstalk's ID when there is more than one Beanstalk in an area. With only one, you can just set it to 0."/>
 	</sprite>
+
+	<sprite id="164" name="Bob-omb" notes="A bomb like creature that will explode after Mario jumps on its head or shoots a fireball at it. It will instantly explode when crushed or touches lava.">
+		<list nybble="5" title="Type" comment="Changes the sprite's initial behavior. Actually, there is a difference between 2 and 6, regarding the internal bob-omb counter. Value 2 does not increment the internal bob-omb counter. This matters for example, when a cannon is placed nearby this bob-omb. The cannon only fires bob-ombs when this counter is less than 8.">
+			<entry value="0">Normal</entry>
+			<entry value="1">Pipe Enemy Generator</entry>
+			<entry value="2">Ban-omb on drugs</entry>
+			<entry value="3">Cannon (sprite 176)</entry>
+			<entry value="4">Bowser Jr W7 [Crashes]</entry>
+			<entry value="5">Bowser Jr W7 (multiple Bob-ombs) [Crashes]</entry>
+			<entry value="6">Kamek Battle (Same as 2)</entry>
+		</list>
+		<value nybble="6" title="Z-Position" comment="Used by pipe enemy generator"/>
+		<value nybble="7" title="Bomb ID (Bowser Jr W7) [Useless]" comment="This nybble is useless, because the bowser jr type crashes the game. When nybble 5 (&quot;Type&quot;) is set to 5 (Bowser Jr throws multiple bob-ombs at once), all bob-ombs have an ascending id. This is probably used to change the direction the bob-omb he throws flies, so they don't all go into the same direction."/>
+		<list nybble="11" title="Cannon direction" comment="The direction the bob-omb is fired by the cannon, when type is 3.">
+			<entry value="0">Up right</entry>
+			<entry value="1">Up left</entry>
+			<entry value="2">Down right</entry>
+			<entry value="3">Down left</entry>
+		</list>
+		<list nybble="12" title="Pipe direction" comment="This is used as the pipe direction when type is 1.">
+			<entry value="0">Up</entry>
+			<entry value="1">Down</entry>
+			<entry value="2">Left</entry>
+			<entry value="3">Right</entry>
+		</list>
+	</sprite>
+
+
 </sprites>
