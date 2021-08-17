@@ -1,5 +1,5 @@
 # Miyamoto+
-## A patch For the Miyamoto! level editor.
+## A patch For the Miyamoto! level editor
 
 ----------------------------------------------------------------
 
