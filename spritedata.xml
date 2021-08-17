@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<sprites>
+	<sprite id="396" name="Beanstalk Leaf">
+		<value nybble="5-7" title="Spawn Delay" comment="Controls the delay before the leaf spawns. Can be set up to 4095."/>
+		<value nybble="10" title="Respawn Related" comment="Use values 0-3. See 'Spawn state' for more info."/>
+		<list nybble="11" title="Start Color">
+			<entry value="0">Red</entry>
+			<entry value="1">Green</entry>
+		</list>
+		<list nybble="12" title="Direction" comment="If set to 0, the leaf will grow to the left. If set to 1, the leaf will grow to the right.">
+			<entry value="0">Left</entry>
+			<entry value="1">Right</entry>
+		</list>
+		<list nybble="13" title="Spawn State" comment="*Value 2 only works if there are at least 4 leaves with this value present. Those 4 leaves will have to take up values 0-3 from 'Respawn Related'.">
+			<entry value="0">Normal</entry>
+			<entry value="1">Already Grown</entry>
+			<entry value="2">Respawn*</entry>
+		</list>
+		<value nybble="15" title="Unknown Value 15"/>
+		<value nybble="16" title="Unknown Value 16"/>
+		<value nybble="17" title="Duration until fall off" comment="Amount of seconds after the growth it will fall off. Whatever value you set it to, it will always last 3 seconds longer. (Somehow, this is not working properly yet, we may have the wrong nybble actually.) Duration = Value + 3 (in seconds)"/>
+		<list nybble="18" title="Size" comment="The leaf's size. ">
+			<entry value="0">Small (3 Blocks)</entry>
+			<entry value="1">Medium (6 Blocks)</entry>
+			<entry value="2">Large (9 Blocks)</entry>
+		</list>
+		<value nybble="22" title="Beanstalk ID" comment="Link this up with the Beanstalk's ID when there is more than one Beanstalk in an area. With only one, you can just set it to 0."/>
+	</sprite>
+</sprites>

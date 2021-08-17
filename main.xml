@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<game name="Miyamoto+" version="1.0" description="A patch for Miyamoto! with some basic edits">
+
+    <!-- Files -->
+    <folder name="sprites" path="sprites" />
+    <file name="sprites" path="sprites.txt" patch="True" />
+    <file name="spritedata" path="spritedata.xml" patch="True" />
+    <file name="music" path="music.txt" patch="False" />
+
+
+</game>

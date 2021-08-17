@@ -1,0 +1,28 @@
+1:Overworld
+2:Underground
+3:Underwater
+4:Athletic
+5:Ghost House
+6:Desert
+7:Snow
+8:Volcano
+9:Tower
+10:Castle
+11:Airship
+12:Bonus Room
+13:Bowser Boss Room
+14:Tower Boss Figth
+15:Castle Boss Fight
+16:Toad House
+17:Bowser Jr. Fight
+18:Jungle
+19:Ambush
+20:Beach
+21:Volcano Cave
+22:Records house
+23:Credits
+24:Before Boss Area
+25:Bowser Bridge Fight
+26:Final Boss Fight
+27:Princess Peach's Room
+28:Final Castle

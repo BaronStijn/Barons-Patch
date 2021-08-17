@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# Miyamoto! Level Editor - New Super Mario Bros. U Level Editor
+# Copyright (C) 2009-2021 Treeki, Tempus, angelsl, JasonP27, Kinnay,
+# MalStar1000, RoadrunnerWMC, MrRean, Grop, AboodXD, Gota7, John10v10,
+# mrbengtsson
+
+# This file is part of Miyamoto!.
+
+# Miyamoto! is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# Miyamoto! is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with Miyamoto!.  If not, see <http://www.gnu.org/licenses/>.
+
+# sprites.py
+# Contains code to render NSMBU sprite images
+# not even close to done...
+
+
+# IMPORTANT!!!! An offset value of 16 is one block!
+
+
+################################################################
+################################################################
+
+############ Imports ############
+
+import math
+
+from PyQt5 import QtCore, QtGui
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+
+Qt = QtCore.Qt
+
+from miyamoto import *
+
+import spritelib as SLib
+
+#################################
+
+ImageCache = SLib.ImageCache
+
+# Global varible for rotations.
+Rotations = [0, 0, 0]
+StoneRotation = 0
+
+
+################################################################
+################################################################
+
+# GETTING SPRITEDATA:
+# You can get the spritedata that is set on a sprite to alter
+# the image that is shown. To do this, add a datachanged method,
+# with the parameter self. In this method, you can access the
+# spritedata through self.parent.spritedata[n], which returns
+# the (n+1)th byte of the spritedata. To find the n for nybble
+# x, use this formula:
+# n = (x/2) - 1
+#
+# If the nybble you want is the upper 4 bits of n (x is odd),
+# you can get the value of x like this:
+# val_x = n >> 4
+
+
+
+
+
+    ################################################################
+
+
+class SpriteImage_VLimitL(SLib.SpriteImage_StaticMultiple):  # 27
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('VLimitDl', 'vlimit_d_l.png')
+        SLib.loadIfNotInImageCache('VLimitUL', 'vlimit_u_l.png')
+
+    def dataChanged(self):
+
+        direction = self.parent.spritedata[2]
+
+        if direction == 0:
+            self.dimensions = (0, 4, 0, 0)
+            self.image = ImageCache['VLimitDl']
+        elif direction == 16 or direction == 17 or direction == 18 or direction == 19 or direction == 20 or direction == 21 or direction == 22 or direction == 23 or direction == 24 or direction == 25 or direction == 26 or direction == 27 or direction == 28 or direction == 29 or direction == 30 or direction == 31:
+            self.dimensions = (0, 0, 0, 0)
+            self.image = ImageCache['VLimitUL']
+        else:
+            self.dimensions = (0, 4, 0, 0)
+            self.image = ImageCache['VLimitDl']
+
+        super().dataChanged()
+
+
+class SpriteImage_VLimitR(SLib.SpriteImage_StaticMultiple):  # 28
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('VLimitDR', 'vlimit_d_r.png')
+        SLib.loadIfNotInImageCache('VLimitUR', 'vlimit_u_r.png')
+
+    def dataChanged(self):
+
+        direction = self.parent.spritedata[2]
+
+        if direction == 0:
+            self.dimensions = (0, 4, 0, 0)
+            self.image = ImageCache['VLimitDR']
+        elif direction == 16 or direction == 17 or direction == 18 or direction == 19 or direction == 20 or direction == 21 or direction == 22 or direction == 23 or direction == 24 or direction == 25 or direction == 26 or direction == 27 or direction == 28 or direction == 29 or direction == 30 or direction == 31:
+            self.dimensions = (0, 0, 0, 0)
+            self.image = ImageCache['VLimitUR']
+        else:
+            self.dimensions = (0, 4, 0, 0)
+            self.image = ImageCache['VLimitDR']
+
+        super().dataChanged()
+
+
+class SpriteImage_LimitU(SLib.SpriteImage_StaticMultiple):  # 29
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('LimitUR', 'limit_u_r.png')
+        SLib.loadIfNotInImageCache('LimitUL', 'limit_u_l.png')
+
+    def dataChanged(self):
+
+        direction = self.parent.spritedata[2]
+
+        if direction == 0:
+            self.dimensions = (4, 0, 0, 0)
+            self.image = ImageCache['LimitUR']
+        elif direction == 16 or direction == 17 or direction == 18 or direction == 19 or direction == 20 or direction == 21 or direction == 22 or direction == 23 or direction == 24 or direction == 25 or direction == 26 or direction == 27 or direction == 28 or direction == 29 or direction == 30 or direction == 31:
+            self.dimensions = (0, 0, 0, 0)
+            self.image = ImageCache['LimitUL']
+        else:
+            self.dimensions = (4, 0, 0, 0)
+            self.image = ImageCache['LimitUR']
+
+        super().dataChanged()
+
+
+class SpriteImage_LimitD(SLib.SpriteImage_StaticMultiple):  # 30
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('LimitDR', 'limit_d_r.png')
+        SLib.loadIfNotInImageCache('LimitDL', 'limit_d_l.png')
+
+    def dataChanged(self):
+
+        direction = self.parent.spritedata[2]
+
+        if direction == 0:
+            self.dimensions = (4, 0, 0, 0)
+            self.image = ImageCache['LimitDR']
+        elif direction == 16 or direction == 17 or direction == 18 or direction == 19 or direction == 20 or direction == 21 or direction == 22 or direction == 23 or direction == 24 or direction == 25 or direction == 26 or direction == 27 or direction == 28 or direction == 29 or direction == 30 or direction == 31:
+            self.dimensions = (0, 0, 0, 0)
+            self.image = ImageCache['LimitDL']
+        else:
+            self.dimensions = (4, 0, 0, 0)
+            self.image = ImageCache['LimitDR']
+
+        super().dataChanged()
+
+
+class SpriteImage_Path(SLib.SpriteImage_StaticMultiple):  # 100
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['Path'],
+            (0, 0),
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('Path', 'path.png')
+
+
+class SpriteImage_FallingIcicle(SLib.SpriteImage_StaticMultiple):  # 183
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+        self.yOffset = -4
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('FallingIcicle1', 'falling_icicle_1.png')
+        SLib.loadIfNotInImageCache('FallingIcicle2', 'falling_icicle_2.png')
+
+    def dataChanged(self):
+        size = self.parent.spritedata[5]
+
+        if size == 1:
+            self.image = ImageCache['FallingIcicle2']
+        else:
+            self.image = ImageCache['FallingIcicle1']
+
+        super().dataChanged()
+
+
+################## SPRITE CLASSES ##############################
+################################################################
+
+ImageClasses = {
+    27: SpriteImage_VLimitL,
+    28: SpriteImage_VLimitR,
+    29: SpriteImage_LimitU,
+    30: SpriteImage_LimitD,
+    100: SpriteImage_Path,
+    183: SpriteImage_FallingIcicle,
+}
