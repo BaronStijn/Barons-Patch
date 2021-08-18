@@ -64,7 +64,12 @@
 		<checkbox nybble="6" mask="4" title="Tilted"/>
 		<checkbox nybble="6" mask="8" title="Unknown Value 6 Mask 8"/>
 		<value nybble="10" title="Unknown Value 10"/>
-		<value nybble="21-22" title="Movement ID" comment="The movement id for the sprite."/>
+		<value nybble="21-22" title="Movement ID" comment="The movement id for the sprite."/><sprite id="358" name="Bolt-controlled Airship Platform - Crashes [UNUSED]" notes="Lacks a file."/>
+	</sprite>
+
+	<sprite id="359" name="Path-controlled Lava Block" notes="A large lava block.">
+		<value nybble="10" title="Type" comment="Valid values are 0 to 10. Values 11 and 12 will crash the game."/>
+		<value nybble="21-22" title="Movement ID"/>
 	</sprite>
 
 
