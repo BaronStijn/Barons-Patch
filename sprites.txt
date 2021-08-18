@@ -332,6 +332,20 @@ class SpriteImage_FallingIcicle(SLib.SpriteImage_StaticMultiple):  # 183
         super().dataChanged()
 
 
+class SpriteImage_DashCoin(SLib.SpriteImage_StaticMultiple):  # 325
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['DashCoin'],
+            (0, 0),
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('DashCoin', 'outline.png')
+
+
 ################## SPRITE CLASSES ##############################
 ################################################################
 
@@ -344,4 +358,5 @@ ImageClasses = {
     116: SpriteImage_ControllerSwaying_Path,
     118: SpriteImage_ControllerSpinning_Path,
     183: SpriteImage_FallingIcicle,
+    325: SpriteImage_DashCoin,
 }
