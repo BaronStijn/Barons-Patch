@@ -1,6 +1,6 @@
 # Miyamoto+
 ## A patch For the Miyamoto! level editor
-`Beta Version 1.0.2`
+`Beta Version 1.0.3`
 
 
 Download Miyamoto! here: https://github.com/aboood40091/Miyamoto
