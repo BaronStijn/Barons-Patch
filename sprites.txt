@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+	#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Miyamoto! Level Editor - New Super Mario Bros. U Level Editor
@@ -368,6 +368,43 @@ class SpriteImage_FallingIcicle(SLib.SpriteImage_StaticMultiple):  # 183
         super().dataChanged()
 
 
+class SpriteImage_Bush(SLib.SpriteImage_StaticMultiple):  # 288
+    colors = (
+        ('Green', 'green'),
+        ('Yellow', 'yellow'),
+    )
+
+    offsets = (
+        (-28, -32),
+        (-36, -44),
+        (-32, -60),
+        (-40, -76),
+    )
+
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+        self.parent.setZValue(-60000)
+
+    @staticmethod
+    def loadImages():
+        for C, c in SpriteImage_Bush.colors:
+            for i in range(4):
+                SLib.loadIfNotInImageCache('Bush%s%d' % (C, i), 'bush_%d_%s.png' % (i, c))
+
+    def dataChanged(self):
+        type = self.parent.spritedata[5] & 3
+        isYellow = self.parent.spritedata[5] >> 4 & 1
+
+        self.image = ImageCache['Bush%s%d' % (SpriteImage_Bush.colors[isYellow][0], type)]
+        self.offset = SpriteImage_Bush.offsets[type]
+
+        super().dataChanged()
+
+
 class SpriteImage_GiantWiggler(SLib.SpriteImage_StaticMultiple):  # 301
     def __init__(self, parent):
         super().__init__(
@@ -405,6 +442,66 @@ class SpriteImage_DashCoin(SLib.SpriteImage_Static):  # 325
     @staticmethod
     def loadImages():
         SLib.loadIfNotInImageCache('DashCoin', 'outline.png')
+
+
+class SpriteImage_LavaBlock(SLib.SpriteImage_StaticMultiple):  # 359
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+        self.parent.setZValue(-40000)
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('type_0', 'lavablock_0.png')
+        SLib.loadIfNotInImageCache('type_1', 'lavablock_1.png')
+        SLib.loadIfNotInImageCache('type_2', 'lavablock_2.png')
+        SLib.loadIfNotInImageCache('type_3', 'lavablock_3.png')
+        SLib.loadIfNotInImageCache('type_4', 'lavablock_4.png')
+        SLib.loadIfNotInImageCache('type_5', 'lavablock_5.png')
+        SLib.loadIfNotInImageCache('type_6', 'lavablock_6.png')
+        SLib.loadIfNotInImageCache('type_7', 'lavablock_7.png')
+        SLib.loadIfNotInImageCache('type_8', 'lavablock_8.png')
+        SLib.loadIfNotInImageCache('type_9', 'lavablock_9.png')
+        SLib.loadIfNotInImageCache('type_10', 'lavablock_10.png')
+        SLib.loadIfNotInImageCache('type_11', 'crash.png')
+
+
+
+
+    def dataChanged(self):
+        type = self.parent.spritedata[4]
+
+        if type == 1:
+            self.image = ImageCache['type_1']
+        elif type == 2:
+            self.image = ImageCache['type_2']
+        elif type == 3:
+            self.image = ImageCache['type_3']
+        elif type == 4:
+            self.image	= ImageCache['type_4']
+        elif type == 5:
+            self.image = ImageCache['type_5']
+        elif type == 6:
+            self.image = ImageCache['type_6']
+        elif type == 7:
+            self.image = ImageCache['type_7']
+        elif type == 8:
+            self.image = ImageCache['type_8']
+        elif type == 9:
+            self.image = ImageCache['type_9']
+        elif type == 10:
+            self.image = ImageCache['type_10']
+        elif type == 11:
+            self.image = ImageCache['type_11']
+        elif type == 12:
+            self.image = ImageCache['type_11']
+        else:
+            self.image = ImageCache['type_0']
+
+        super().dataChanged()
 
 
 class SpriteImage_GiantKoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 476
@@ -448,6 +545,7 @@ ImageClasses = {
     19: SpriteImage_KoopaTroopa,
     27: SpriteImage_VLimitL,
     28: SpriteImage_VLimitR,
+    288: SpriteImage_Bush,
     29: SpriteImage_LimitU,
     30: SpriteImage_LimitD,
     55: SpriteImage_KoopaTroopa,
@@ -457,5 +555,6 @@ ImageClasses = {
     183: SpriteImage_FallingIcicle,
     301: SpriteImage_GiantWiggler,
     325: SpriteImage_DashCoin,
+    359: SpriteImage_LavaBlock,
     476: SpriteImage_GiantKoopaTroopa,
 }
