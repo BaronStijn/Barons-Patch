@@ -58,5 +58,14 @@
 		</list>
 	</sprite>
 
+	<sprite id="325" name="Rotation-controlled Dash Coin" notes="A Coin Outline that can be rotation-controlled.">
+		<checkbox nybble="6" mask="1" title="Upside Down"/>
+		<checkbox nybble="6" mask="2" title="Gyroscopic Movement"/>
+		<checkbox nybble="6" mask="4" title="Tilted"/>
+		<checkbox nybble="6" mask="8" title="Unknown Value 6 Mask 8"/>
+		<value nybble="10" title="Unknown Value 10"/>
+		<value nybble="21-22" title="Movement ID" comment="The movement id for the sprite."/>
+	</sprite>
+
 
 </sprites>
