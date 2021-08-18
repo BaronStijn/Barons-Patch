@@ -78,6 +78,42 @@ StoneRotation = 0
     ################################################################
 
 
+class SpriteImage_KoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 19, 55
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+        self.xOffset = -4
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('KoopaShellG', 'koopatroopa_shell_green.png')
+        SLib.loadIfNotInImageCache('KoopaShellR', 'koopatroopa_shell_red.png')
+        SLib.loadIfNotInImageCache('KoopatroopaG', 'koopatroopa_green.png')
+        SLib.loadIfNotInImageCache('KoopatroopaR', 'koopatroopa_red.png')
+        SLib.loadIfNotInImageCache('KoopatroopaGR', 'koopatroopa_green_r.png')
+        SLib.loadIfNotInImageCache('KoopatroopaRR', 'koopatroopa_red_r.png')
+
+    def dataChanged(self):
+        direction = self.parent.spritedata[4] == 2
+        shellcolour = self.parent.spritedata[5] & 1
+        inshell = (self.parent.spritedata[5] >> 4) & 1
+
+        if inshell:
+            self.offset = (-4, 0)
+            self.image = ImageCache['KoopaShellR' if shellcolour else 'KoopaShellG']
+        elif direction:
+            self.offset = (0, -16)
+            self.image = ImageCache['KoopatroopaRR' if shellcolour else 'KoopatroopaGR']
+        else:
+            self.offset = (-4, -16)
+            self.image = ImageCache['KoopatroopaR' if shellcolour else 'KoopatroopaG']
+
+        super().dataChanged()
+
+
 class SpriteImage_VLimitL(SLib.SpriteImage_StaticMultiple):  # 27
     def __init__(self, parent):
         super().__init__(
@@ -332,7 +368,32 @@ class SpriteImage_FallingIcicle(SLib.SpriteImage_StaticMultiple):  # 183
         super().dataChanged()
 
 
-class SpriteImage_DashCoin(SLib.SpriteImage_StaticMultiple):  # 325
+class SpriteImage_GiantWiggler(SLib.SpriteImage_StaticMultiple):  # 301
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('GiantWiggler', 'giant_wiggler.png')
+        SLib.loadIfNotInImageCache('GiantWigglerR', 'giant_wiggler_r.png')
+
+    def dataChanged(self):
+        direction = (self.parent.spritedata[5] >> 4)
+
+        if direction == 1:
+            self.offset = (-136, -72)
+            self.image = ImageCache['GiantWigglerR']
+        else:
+            self.offset = (-32, -72)
+            self.image = ImageCache['GiantWiggler']
+
+        super().dataChanged()
+
+
+class SpriteImage_DashCoin(SLib.SpriteImage_Static):  # 325
     def __init__(self, parent):
         super().__init__(
             parent,
@@ -346,17 +407,55 @@ class SpriteImage_DashCoin(SLib.SpriteImage_StaticMultiple):  # 325
         SLib.loadIfNotInImageCache('DashCoin', 'outline.png')
 
 
+class SpriteImage_GiantKoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 476
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('GiantKoopaShellG', 'giant_koopatroopa_shell_green.png')
+        SLib.loadIfNotInImageCache('GiantKoopaShellR', 'giant_koopatroopa_shell_red.png')
+        SLib.loadIfNotInImageCache('GiantKoopatroopaG', 'giant_koopatroopa_green.png')
+        SLib.loadIfNotInImageCache('GiantKoopatroopaR', 'giant_koopatroopa_red.png')
+        SLib.loadIfNotInImageCache('GiantKoopatroopaGR', 'giant_koopatroopa_green_r.png')
+        SLib.loadIfNotInImageCache('GiantKoopatroopaRR', 'giant_koopatroopa_red_r.png')
+
+    def dataChanged(self):
+        direction = self.parent.spritedata[4] == 2
+        shellcolour = self.parent.spritedata[5] & 1
+        inshell = (self.parent.spritedata[5] >> 4) & 1
+
+        if inshell:
+            self.offset = (-12, -16)
+            self.image = ImageCache['GiantKoopaShellR' if shellcolour else 'GiantKoopaShellG']
+        elif direction:
+            self.offset = (-6, -40)
+            self.image = ImageCache['GiantKoopatroopaRR' if shellcolour else 'GiantKoopatroopaGR']
+        else:
+            self.offset = (-24, -40)
+            self.image = ImageCache['GiantKoopatroopaR' if shellcolour else 'GiantKoopatroopaG']
+
+        super().dataChanged()
+
+
 ################## SPRITE CLASSES ##############################
 ################################################################
 
 ImageClasses = {
+    19: SpriteImage_KoopaTroopa,
     27: SpriteImage_VLimitL,
     28: SpriteImage_VLimitR,
     29: SpriteImage_LimitU,
     30: SpriteImage_LimitD,
+    55: SpriteImage_KoopaTroopa,
     100: SpriteImage_Path,
     116: SpriteImage_ControllerSwaying_Path,
     118: SpriteImage_ControllerSpinning_Path,
     183: SpriteImage_FallingIcicle,
+    301: SpriteImage_GiantWiggler,
     325: SpriteImage_DashCoin,
+    476: SpriteImage_GiantKoopaTroopa,
 }
