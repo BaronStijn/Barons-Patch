@@ -97,7 +97,7 @@ class SpriteImage_KoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 19, 55
         SLib.loadIfNotInImageCache('KoopatroopaRR', 'koopatroopa_red_r.png')
 
     def dataChanged(self):
-        direction = self.parent.spritedata[4] == 2
+        direction = (self.parent.spritedata[4] & 0xF) == 2
         shellcolour = self.parent.spritedata[5] & 1
         inshell = (self.parent.spritedata[5] >> 4) & 1
 
@@ -468,9 +468,6 @@ class SpriteImage_LavaBlock(SLib.SpriteImage_StaticMultiple):  # 359
         SLib.loadIfNotInImageCache('type_10', 'lavablock_10.png')
         SLib.loadIfNotInImageCache('type_11', 'crash.png')
 
-
-
-
     def dataChanged(self):
         type = self.parent.spritedata[4]
 
@@ -481,7 +478,7 @@ class SpriteImage_LavaBlock(SLib.SpriteImage_StaticMultiple):  # 359
         elif type == 3:
             self.image = ImageCache['type_3']
         elif type == 4:
-            self.image	= ImageCache['type_4']
+            self.image = ImageCache['type_4']
         elif type == 5:
             self.image = ImageCache['type_5']
         elif type == 6:
@@ -498,8 +495,39 @@ class SpriteImage_LavaBlock(SLib.SpriteImage_StaticMultiple):  # 359
             self.image = ImageCache['type_11']
         elif type == 12:
             self.image = ImageCache['type_11']
-        else:
+        else:	
             self.image = ImageCache['type_0']
+
+        super().dataChanged()
+
+
+class SpriteImage_Debris(SLib.SpriteImage_StaticMultiple):  # 440
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75
+        )
+
+        self.aux.append(SLib.AuxiliaryImage(parent, 1, 1))
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('Debris_Small', 'debris_small.png')
+        SLib.loadIfNotInImageCache('Debris_Big', 'debris_big.png')
+        SLib.loadIfNotInImageCache('Debris_Both', 'debris_both.png')
+
+    def dataChanged(self):
+        type = (self.parent.spritedata[5] & 0xF)
+
+        if type == 1:
+            self.dimensions = (-32, -24, 64, 64)
+            self.aux[0].setImage(ImageCache['Debris_Big'], -360, -420)
+        elif type == 2:
+            self.dimensions = (-32, -24, 64, 64)
+            self.aux[0].setImage(ImageCache['Debris_Both'], -360, -420)
+        else:
+            self.dimensions = (-16, -8, 32, 32)
+            self.aux[0].setImage(ImageCache['Debris_Small'], -180, -210)
 
         super().dataChanged()
 
@@ -521,7 +549,7 @@ class SpriteImage_GiantKoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 476
         SLib.loadIfNotInImageCache('GiantKoopatroopaRR', 'giant_koopatroopa_red_r.png')
 
     def dataChanged(self):
-        direction = self.parent.spritedata[4] == 2
+        direction = (self.parent.spritedata[4] & 0xF) == 2
         shellcolour = self.parent.spritedata[5] & 1
         inshell = (self.parent.spritedata[5] >> 4) & 1
 
@@ -556,5 +584,6 @@ ImageClasses = {
     301: SpriteImage_GiantWiggler,
     325: SpriteImage_DashCoin,
     359: SpriteImage_LavaBlock,
+    440: SpriteImage_Debris,
     476: SpriteImage_GiantKoopaTroopa,
 }
