@@ -72,5 +72,7 @@
 		<value nybble="21-22" title="Movement ID"/>
 	</sprite>
 
+	<sprite id="570" name="Results Controller"/>
+
 
 </sprites>
