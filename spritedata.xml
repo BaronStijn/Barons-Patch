@@ -74,5 +74,14 @@
 
 	<sprite id="570" name="Results Controller"/>
 
+	<sprite id="620" name="Big Porcupuffer [CRASHES] [UNUSED]" notes="Unused">
+		<checkbox nybble="11" title="Unknown Flag 11"/>
+	</sprite>
+
+	<sprite id="621" name="Big Porcupuffer Spawn Area [CRASHES] [UNUSED]">
+		<value nybble="9-10" title="Unknown Value 9-10"/>
+		<value nybble="11-12" title="Location ID"/>
+	</sprite>
+
 
 </sprites>
