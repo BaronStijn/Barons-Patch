@@ -301,7 +301,7 @@
         <level file="1-5" name="1-5: Rise of the Piranha Plants" />
         <level file="1-23" name="1-23: Lemmy's Swingback Castle" />
         <level file="1-13" name="1-23: Blooper's Secret Lair" />
-        <level file="1-32" name="1-32:Piranha Plant Ambush" />
+        <level file="1-32" name="1-32: Piranha Plant Ambush" />
         <level file="1-33" name="1-:33 Piranha Plant Ambush" />
         <level file="1-34" name="1-:34 Piranha Plant Ambush" />
         <level file="1-55" name="1-:55 Piranha Plant Ambush?" />
@@ -331,10 +331,10 @@
         <level file="3-5" name="3-5: Dragoneel's Undersea Grotto" />
         <level file="3-23" name="3-23: Larry's Torpedo Castle" />
         <level file="3-15" name="3-15: Skyward Stalk" />
-        <level file="3-32" name="3-32:Cheep Cheep Ambush" />
-        <level file="3-33" name="3-33:Cheep Cheep Ambush" />
-        <level file="3-34" name="3-34:Cheep Cheep Ambush" />
-        <level file="3-55" name="3-35:Cheep Cheep Ambush?" />
+        <level file="3-32" name="3-32: Cheep Cheep Ambush" />
+        <level file="3-33" name="3-33: Cheep Cheep Ambush" />
+        <level file="3-34" name="3-34: Cheep Cheep Ambush" />
+        <level file="3-55" name="3-35: Cheep Cheep Ambush?" />
 
         <level file="4-1" name="4-1: Spinning-Star Sky" />
         <level file="4-2" name="4-2: Cooligan Fields" />
@@ -364,11 +364,11 @@
         <level file="5-7" name="5-7: Wiggler Stampede" />
         <level file="5-23" name="5-23: Iggy's Volcanic Castle" />
         <level file="5-17" name="5-17: Flight of the Para-Beetles" />
-        <level file="5-32" name="5-32:Boo Ambush" />
-        <level file="5-33" name="5-33:Boo Ambush" />
-        <level file="5-34" name="5-34:Boo Ambush" />
-        <level file="5-55" name="5-55:Boo Ambush?" />
-        <level file="5-56" name="5-56:Boo Ambush?" />
+        <level file="5-32" name="5-32: Boo Ambush" />
+        <level file="5-33" name="5-33: Boo Ambush" />
+        <level file="5-34" name="5-34: Boo Ambush" />
+        <level file="5-55" name="5-55: Boo Ambush?" />
+        <level file="5-56" name="5-56: Boo Ambush?" />
 
         <level file="6-1" name="6-1: Fuzzy Clifftop" />
         <level file="6-2" name="6-2: Porcupuffer Falls" />
