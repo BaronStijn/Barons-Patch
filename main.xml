@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<game name="Miyamoto+" version="1.0" description="A patch for Miyamoto! with some basic edits">
+<game name="Miyamoto+" description="A patch for Miyamoto! with some basic edits">
 
     <!-- Files -->
     <folder name="sprites" path="sprites" />
