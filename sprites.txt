@@ -230,6 +230,46 @@ class SpriteImage_LimitD(SLib.SpriteImage_StaticMultiple):  # 30
         super().dataChanged()
 
 
+class SpriteImage_MovementStarCoin(SLib.SpriteImage_MovementControlled):  # 48
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+        )
+
+        self.previousType = 0
+        self.yOffset = 8
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('StarCoin', 'star_coin.png')
+
+    def getMovementType(self):
+        return self.parent.spritedata[9] >> 4 & 3
+
+    def allowedMovementControllers(self):
+        if self.getMovementType() == 0:
+            return 68, 116, 69, 118
+
+        return tuple()
+
+    def dataChanged(self):
+        type = self.getMovementType()
+        if type != self.previousType:
+            self.previousType = type
+            self.unhookController()
+
+        if type == 0:
+            self.offset = (-16, -10)
+
+        else:
+            self.offset = (0, 6)
+
+        self.image = ImageCache['StarCoin']
+
+        super().dataChanged()
+
+
 class SpriteImage_Path(SLib.SpriteImage_StaticMultiple):  # 100
     def __init__(self, parent):
         super().__init__(
@@ -577,6 +617,7 @@ ImageClasses = {
     29: SpriteImage_LimitU,
     30: SpriteImage_LimitD,
     55: SpriteImage_KoopaTroopa,
+    48: SpriteImage_MovementStarCoin,
     100: SpriteImage_Path,
     116: SpriteImage_ControllerSwaying_Path,
     118: SpriteImage_ControllerSpinning_Path,
