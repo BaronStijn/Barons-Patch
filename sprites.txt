@@ -408,6 +408,20 @@ class SpriteImage_FallingIcicle(SLib.SpriteImage_StaticMultiple):  # 183
         super().dataChanged()
 
 
+class SpriteImage_BossController(SLib.SpriteImage_StaticMultiple):  # 216, 245, 412, 432, 435, 466, 497
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['BossController'],
+            (0, 0),
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('BossController', 'boss_controller.png')
+
+
 class SpriteImage_Bush(SLib.SpriteImage_StaticMultiple):  # 288
     colors = (
         ('Green', 'green'),
@@ -572,6 +586,20 @@ class SpriteImage_Debris(SLib.SpriteImage_StaticMultiple):  # 440
         super().dataChanged()
 
 
+class SpriteImage_KamekBlock(SLib.SpriteImage_StaticMultiple):  # 450
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['KamekBlock'],
+            (0, -32),
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('KamekBlock', 'kamek_block.png')
+
+
 class SpriteImage_GiantKoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 476
     def __init__(self, parent):
         super().__init__(
@@ -606,6 +634,20 @@ class SpriteImage_GiantKoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 476
         super().dataChanged()
 
 
+class SpriteImage_GoalRing(SLib.SpriteImage_StaticMultiple):  # 599
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75,
+            ImageCache['GoalRing'],
+            (-16, -48),
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('GoalRing', 'goal_ring.png')
+
+
 ################## SPRITE CLASSES ##############################
 ################################################################
 
@@ -613,7 +655,6 @@ ImageClasses = {
     19: SpriteImage_KoopaTroopa,
     27: SpriteImage_VLimitL,
     28: SpriteImage_VLimitR,
-    288: SpriteImage_Bush,
     29: SpriteImage_LimitU,
     30: SpriteImage_LimitD,
     55: SpriteImage_KoopaTroopa,
@@ -622,9 +663,19 @@ ImageClasses = {
     116: SpriteImage_ControllerSwaying_Path,
     118: SpriteImage_ControllerSpinning_Path,
     183: SpriteImage_FallingIcicle,
+    216: SpriteImage_BossController,
+    245: SpriteImage_BossController,
+    288: SpriteImage_Bush,
     301: SpriteImage_GiantWiggler,
     325: SpriteImage_DashCoin,
     359: SpriteImage_LavaBlock,
+    412: SpriteImage_BossController,
+    432: SpriteImage_BossController,
+    435: SpriteImage_BossController,
     440: SpriteImage_Debris,
+    450: SpriteImage_KamekBlock,
+    466: SpriteImage_BossController,
     476: SpriteImage_GiantKoopaTroopa,
+    497: SpriteImage_BossController,
+    599: SpriteImage_GoalRing,
 }

@@ -72,6 +72,27 @@
 		<value nybble="21-22" title="Movement ID"/>
 	</sprite>
 
+	<sprite id="412" name="Kamek Boss Controller" notes="&quot;Asset Tag Kamekkudemo&quot;"/>
+
+	<sprite id="432" name="Bowser Jr. Boss Controller">
+		<value nybble="10" title="Entrance id"/>
+		<value nybble="11" title="Entrance area"/>
+		<list nybble="12" title="Type ">
+			<entry value="0">World 5 (sprite 392)</entry>
+			<entry value="1">World 7 (sprite 433)</entry>
+			<entry value="2">World 7 Demo (sprite 604)</entry>
+		</list>
+	</sprite>
+
+	<sprite id="435" name="Sumo Bro Boss Controller" notes="Only used in 6-22, of both NSMBU and NSLU."/>
+
+	<sprite id="466" name="Bowser Boss Controller" notes="Needs a location with location id 1, a bowser sprite, and something that triggers event id 7."/>
+
+	<sprite id="497" name="Final Bowser Boss Controller">
+		<value nybble="3-4" title="Event ID"/>
+		<value nybble="12" title="Destination Area?"/>
+	</sprite>
+
 	<sprite id="570" name="Results Controller"/>
 
 	<sprite id="620" name="Big Porcupuffer [CRASHES] [UNUSED]" notes="Unused">
