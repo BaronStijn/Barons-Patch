@@ -1,9 +1,9 @@
 # Miyamoto+
-## A patch For the Miyamoto! level editor
+## A patch For the Miyamoto level editor for NSMBU
 `Beta Version 1.4`
 
 
-Download Miyamoto! here: https://github.com/aboood40091/Miyamoto
+Download Miyamoto here: https://github.com/aboood40091/Miyamoto
 
 ----------------------------------------------------------------
 
