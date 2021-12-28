@@ -10,7 +10,7 @@ Download Miyamoto here: https://github.com/aboood40091/Miyamoto
 
 ## Credits
 
-* The Miyamoto! level editor is made by AboodXD
+* The Miyamoto level editor is made by AboodXD
 * More info about Beanstalk Leaves comes from Rimea
 
 ----------------------------------------------------------------
