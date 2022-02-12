@@ -11,7 +11,7 @@
 11:Airship
 12:Bonus Room
 13:Bowser Boss Room
-14:Tower Boss Figth
+14:Tower Boss Fight
 15:Castle Boss Fight
 16:Toad House
 17:Bowser Jr. Fight
