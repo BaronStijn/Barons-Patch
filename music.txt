@@ -9,7 +9,7 @@
 9:Tower
 10:Castle
 11:Airship
-12:Bonus Room
+12:Bonus Area
 13:Bowser Room
 14:Tower Boss Fight
 15:Castle Boss Fight
@@ -22,7 +22,7 @@
 22:Records house
 23:Credits
 24:Before Boss Area
-25:Bowser Bridge Fight
+25:First Bowser Fight
 26:Final Boss Fight
 27:Princess Peach's Room
 28:Final Castle
