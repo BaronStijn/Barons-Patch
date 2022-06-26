@@ -1,6 +1,6 @@
 # Miyamoto+
 ## A patch For the Miyamoto level editor for NSMBU
-`Beta Version 1.4`
+`Beta Version 1.5`
 
 
 Download Miyamoto here: https://github.com/aboood40091/Miyamoto
