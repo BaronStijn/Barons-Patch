@@ -2,34 +2,159 @@
 <sprites>
 
 
-	<sprite id="396" name="Beanstalk Leaf">
-		<value nybble="5-7" title="Spawn Delay" comment="Amount of delay before the leaf spawns. Can be set up to 4095."/>
-		<value nybble="10" title="Respawn Related" comment="Use values 0-3. See 'Spawn state' for more info."/>
-		<list nybble="11" title="Start Color" comment="value 0 makes the leaf bouncy. It only works with 'Size' set to Medium or Large.">
-			<entry value="0">Red (Bouncy)*</entry>
-			<entry value="1">Green</entry>
+	<sprite id="116" name="Movement Controller - Pivotal Rotation (Swaying, Path-controlled)" notes="Link this to Movement Controller - Path (100). The controller will be the pivot (center) of rotation for the object controlled by it.">
+		<value nybble="3-4" title="Triggering Event ID" comment="Use this to activate the movement once."/>
+		<checkbox nybble="5" title="Unknown Value 5" comment="No effect at all."/>
+		<list nybble="6" title="Sway Start Offset" comment="Offset [Sway Direction]. Sway direction is inverted when 'Reversed Movement' is used.">
+			<entry value="0">None [Counter-Clockwise]</entry>
+			<entry value="1">(Arc / 2) * cos(22.5&#xB0;) : [Counter-Clockwise]</entry>
+			<entry value="2">(Arc / 2) * cos(45&#xB0;) : [Counter-Clockwise]</entry>
+			<entry value="3">(Arc / 2) * cos(67.5&#xB0;) : [Counter-Clockwise]</entry>
+			<entry value="4">(Arc / 2) * cos(90&#xB0;) : [Clockwise]</entry>
+			<entry value="5">(Arc / 2) * cos(112.5&#xB0;) : [Clockwise]</entry>
+			<entry value="6">(Arc / 2) * cos(135&#xB0;) : [Clockwise]</entry>
+			<entry value="7">(Arc / 2) * cos(157.5&#xB0;) : [Clockwise]</entry>
+			<entry value="8">None [Clockwise]</entry>
+			<entry value="9">(Arc / 2) * cos(202.5&#xB0;) : [Clockwise]</entry>
+			<entry value="10">(Arc / 2) * cos(225&#xB0;) : [Clockwise]</entry>
+			<entry value="11">(Arc / 2) * cos(247.5&#xB0;) : [Clockwise]</entry>
+			<entry value="12">(Arc / 2) * cos(270&#xB0;) : [Counter-Clockwise]</entry>
+			<entry value="13">(Arc / 2) * cos(292.5&#xB0;) : [Counter-Clockwise]</entry>
+			<entry value="14">(Arc / 2) * cos(315&#xB0;) : [Counter-Clockwise]</entry>
+			<entry value="15">(Arc / 2) * cos(337.5&#xB0;) : [Counter-Clockwise]</entry>
 		</list>
-		<list nybble="12" title="Direction" comment="Controls the dirrection of the leaf">
-			<entry value="0">Left</entry>
-			<entry value="1">Right</entry>
-			<entry value="2">Left (Steep Upwards)</entry>
-			<entry value="3">Right (Steep Upwards)</entry>
-			<entry value="4">Left (Gentle Upwards)</entry>
-			<entry value="5">Right (Gentle Upwards)</entry>
+		<checkbox nybble="7" title="Unknown Value 7" comment="No effect at all."/>
+		<value nybble="8" title="Unknown Value 8"/>
+		<checkbox nybble="9" title="Reversed Movement"/>
+		<checkbox nybble="9" title="Event Activated" mask="4"/>
+		<list nybble="10" title="Arc Middle Rotation">
+			<entry value="0">0&#xB0;</entry>
+			<entry value="1">22.5&#xB0;</entry>
+			<entry value="2">45&#xB0;</entry>
+			<entry value="3">67.5&#xB0;</entry>
+			<entry value="4">90&#xB0;</entry>
+			<entry value="5">112.5&#xB0;</entry>
+			<entry value="6">135&#xB0;</entry>
+			<entry value="7">157.5&#xB0;</entry>
+			<entry value="8">180&#xB0;</entry>
+			<entry value="9">202.5&#xB0;</entry>
+			<entry value="10">225&#xB0;</entry>
+			<entry value="11">247.5&#xB0;</entry>
+			<entry value="12">270&#xB0;</entry>
+			<entry value="13">292.5&#xB0;</entry>
+			<entry value="14">315&#xB0;</entry>
+			<entry value="15">337.5&#xB0;</entry>
 		</list>
-		<list nybble="13" title="Spawn State" comment="*Value 2 only works if there are at least 4 leaves with this value present. Those 4 leaves will have to take up values 0-3 from 'Respawn Related'.">
-			<entry value="0">Normal</entry>
-			<entry value="1">Already Grown</entry>
-			<entry value="2">Respawn*</entry>
+		<value nybble="13" title="Sway Delay" comment="Delays the movement of the sprite when switching direction."/>
+		<list nybble="15" title="Sway arc" comment="Arc.">
+			<entry value="0">0&#xB0;</entry>
+			<entry value="1">22.5&#xB0;</entry>
+			<entry value="2">45&#xB0;</entry>
+			<entry value="3">67.5&#xB0;</entry>
+			<entry value="4">90&#xB0;</entry>
+			<entry value="5">112.5&#xB0;</entry>
+			<entry value="6">135&#xB0;</entry>
+			<entry value="7">157.5&#xB0;</entry>
+			<entry value="8">180&#xB0;</entry>
+			<entry value="9">202.5&#xB0;</entry>
+			<entry value="10">225&#xB0;</entry>
+			<entry value="11">247.5&#xB0;</entry>
+			<entry value="12">270&#xB0;</entry>
+			<entry value="13">292.5&#xB0;</entry>
+			<entry value="14">315&#xB0;</entry>
+			<entry value="15">337.5&#xB0;</entry>
 		</list>
-		<value nybble="15" title="Sprout Delay" comment="Amount delay between the bud appearing and the leaf growing"/>
-		<value nybble="16-17" title="Duration until fall off" comment="Amount of delay before the leaf falls off"/>
-		<list nybble="18" title="Size" comment="The leaf's size. ">
-			<entry value="0">Small (3 Blocks)</entry>
-			<entry value="1">Medium (6 Blocks)</entry>
-			<entry value="2">Large (9 Blocks)</entry>
+		<value nybble="16" title="Swaying Speed" comment="The speed it sways."/>
+		<value nybble="18" title="Unknown Value 18"/>
+		<value nybble="20" title="Unknown Value 20"/>
+		<value nybble="21-22" title="Sprite Movement ID"/>
+		<value nybble="23-24" title="Path Movement ID"/>
+	</sprite>
+
+
+	<sprite id="118" name="Movement Controller - Pivotal Rotation (Spinning, Path-controlled)" notes="Link this to Movement Controller - Path (100). The controller will be the pivot (center) of rotation for the object controlled by it.">
+		<value nybble="1-2" title="Triggering Event ID" comment="The ID that triggers the controller."/>
+		<list nybble="5" title="Starting Rotation" comment="The angle it starts rotating at in degrees. Used to desync other sprites.">
+			<entry value="0">0&#xB0;</entry>
+			<entry value="1">22.5&#xB0;</entry>
+			<entry value="2">45&#xB0;</entry>
+			<entry value="3">67.5&#xB0;</entry>
+			<entry value="4">90&#xB0; (Quadrant)</entry>
+			<entry value="5">112.5&#xB0;</entry>
+			<entry value="6">135&#xB0;</entry>
+			<entry value="7">157.5&#xB0;</entry>
+			<entry value="8">180&#xB0; (Semicircle)</entry>
+			<entry value="9">202.5&#xB0;</entry>
+			<entry value="10">225&#xB0;</entry>
+			<entry value="11">247.5&#xB0;</entry>
+			<entry value="12">270&#xB0; (Three-quarter circle)</entry>
+			<entry value="13">292.5&#xB0;</entry>
+			<entry value="14">315&#xB0;</entry>
+			<entry value="15">337.5&#xB0;</entry>
 		</list>
-		<value nybble="22" title="Beanstalk ID" comment="Link this up with the Beanstalk's ID when there is more than one Beanstalk in an area. With only one, you can just set it to 0."/>
+		<list nybble="15" title="Swing Arc">
+			<entry value="0">0&#xB0;</entry>
+			<entry value="1">22.5&#xB0;</entry>
+			<entry value="2">45&#xB0;</entry>
+			<entry value="3">67.5&#xB0;</entry>
+			<entry value="4">90&#xB0; (Quadrant)</entry>
+			<entry value="5">112.5&#xB0;</entry>
+			<entry value="6">135&#xB0;</entry>
+			<entry value="7">157.5&#xB0;</entry>
+			<entry value="8">180&#xB0; (Semicircle)</entry>
+			<entry value="9">202.5&#xB0;</entry>
+			<entry value="10">225&#xB0;</entry>
+			<entry value="11">247.5&#xB0;</entry>
+			<entry value="12">270&#xB0; (Three-quarter circle)</entry>
+			<entry value="13">292.5&#xB0;</entry>
+			<entry value="14">315&#xB0;</entry>
+			<entry value="15">337.5&#xB0;</entry>
+		</list>
+		<list nybble="8" title="Event Mode" comment="This changes how events interact with this controller.">
+			<entry value="0">Event Triggered - Rotates Back When Deactivated (Fastest)</entry>
+			<entry value="1">Already Spinning - Event Reverses Direction</entry>
+			<entry value="2">Continuous Spinning While Event Active</entry>
+			<entry value="4">Event Triggered - Rotates Back When Deactivated (Slow)</entry>
+			<entry value="8">Event Triggered - Rotates Back When Deactivated (Slowest)</entry>
+		</list>
+		<checkbox nybble="16" title="Spins Clockwise" mask="8" comment="Makes the sprite spin clockwise."/>
+		<list nybble="10" title="Effect">
+			<entry value="0">No Effect</entry>
+			<entry value="1">POW-Block-Sound</entry>
+			<entry value="2">Coin-Sound</entry>
+			<entry value="3">Coin-Sound (2x) + POW-Block-Sound</entry>
+			<entry value="4">Zoom alteration</entry>
+			<entry value="5">Zoom alteration</entry>
+			<entry value="6">Zoom alteration</entry>
+			<entry value="7">Zoom alteration</entry>
+			<entry value="8">Zoom alteration</entry>
+			<entry value="9">Zoom alteration</entry>
+			<entry value="10">Zoom alteration</entry>
+			<entry value="11">Zoom alteration</entry>
+			<entry value="12">Zoom alteration</entry>
+		</list>
+		<list nybble="16" title="Spinning Speed" comment="The spinning speed.">
+			<entry value="4">Very Slow [Counter-Clockwise]</entry>
+			<entry value="7">Slow [Counter-Clockwise]</entry>
+			<entry value="0">Slow - Medium [Counter-Clockwise]</entry>
+			<entry value="1">Medium [Counter-Clockwise]</entry>
+			<entry value="2">Medium - Fast [Counter-Clockwise]</entry>
+			<entry value="3">Fast [Counter-Clockwise]</entry>
+			<entry value="5">Faster [Counter-Clockwise]</entry>
+			<entry value="6">Very Fast [Counter-Clockwise]</entry>
+			<entry value="12">Very Slow [Clockwise]</entry>
+			<entry value="15">Slow [Clockwise]</entry>
+			<entry value="8">Slow - Medium [Clockwise]</entry>
+			<entry value="9">Medium [Clockwise]</entry>
+			<entry value="10">Medium - Fast [Clockwise]</entry>
+			<entry value="11">Fast [Clockwise]</entry>
+			<entry value="13">Faster [Clockwise]</entry>
+			<entry value="14">Very Fast [Clockwise]</entry>
+		</list>
+		<value nybble="18" title="Unknown Value 18" comment="I saw no real change."/>
+		<value nybble="20" title="Unknown Value 20" comment="Sprite 390 is on steroids with this option used."/>
+		<value nybble="21-22" title="Sprite Movement ID" comment="Match this with rotation-controlled sprites."/>
+		<value nybble="23-24" title="Path Movement ID" comment="Set this to make the rotation pivot point move!"/>
 	</sprite>
 
 	<sprite id="164" name="Bob-omb" notes="A bomb like creature that will explode after Mario jumps on its head or shoots a fireball at it. It will instantly explode when crushed or touches lava.">
@@ -70,6 +195,36 @@
 	<sprite id="359" name="Path-controlled Lava Block" notes="A large lava block.">
 		<value nybble="10" title="Type" comment="Valid values are 0 to 10. Values 11 and 12 will crash the game."/>
 		<value nybble="21-22" title="Movement ID"/>
+	</sprite>
+
+	<sprite id="396" name="Beanstalk Leaf">
+		<value nybble="5-7" title="Spawn Delay" comment="Amount of delay before the leaf spawns. Can be set up to 4095."/>
+		<value nybble="10" title="Respawn Related" comment="Use values 0-3. See 'Spawn state' for more info."/>
+		<list nybble="11" title="Start Color" comment="value 0 makes the leaf bouncy. It only works with 'Size' set to Medium or Large.">
+			<entry value="0">Red (Bouncy)*</entry>
+			<entry value="1">Green</entry>
+		</list>
+		<list nybble="12" title="Direction" comment="Controls the dirrection of the leaf">
+			<entry value="0">Left</entry>
+			<entry value="1">Right</entry>
+			<entry value="2">Left (Steep Upwards)</entry>
+			<entry value="3">Right (Steep Upwards)</entry>
+			<entry value="4">Left (Gentle Upwards)</entry>
+			<entry value="5">Right (Gentle Upwards)</entry>
+		</list>
+		<list nybble="13" title="Spawn State" comment="*Value 2 only works if there are at least 4 leaves with this value present. Those 4 leaves will have to take up values 0-3 from 'Respawn Related'.">
+			<entry value="0">Normal</entry>
+			<entry value="1">Already Grown</entry>
+			<entry value="2">Respawn*</entry>
+		</list>
+		<value nybble="15" title="Sprout Delay" comment="Amount delay between the bud appearing and the leaf growing"/>
+		<value nybble="16-17" title="Duration until fall off" comment="Amount of delay before the leaf falls off"/>
+		<list nybble="18" title="Size" comment="The leaf's size. ">
+			<entry value="0">Small (3 Blocks)</entry>
+			<entry value="1">Medium (6 Blocks)</entry>
+			<entry value="2">Large (9 Blocks)</entry>
+		</list>
+		<value nybble="22" title="Beanstalk ID" comment="Link this up with the Beanstalk's ID when there is more than one Beanstalk in an area. With only one, you can just set it to 0."/>
 	</sprite>
 
 	<sprite id="412" name="Kamek Boss Controller" notes="&quot;Asset Tag Kamekkudemo&quot;"/>

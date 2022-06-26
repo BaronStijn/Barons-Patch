@@ -351,13 +351,13 @@ class SpriteImage_ControllerSpinning_Path(SLib.SpriteImage_MovementController): 
 
     def dataChanged(self):
         self.rotation = (self.parent.spritedata[2] >> 4) * 22.5
-        arc = (self.parent.spritedata[2] & 0xF) * 22.5
+        arc = (self.parent.spritedata[7] >> 4) * 22.5
         self.spinMode = self.parent.spritedata[3] & 3
-        reversedDir = ((self.parent.spritedata[4] >> 4) & 1) != 0
+        reversedDir = self.parent.spritedata[7] & 0xF > 7
         speedValue = self.parent.spritedata[7] & 0xF
 
         if speedValue > 7:
-            speedValue = 4
+            speedValue -= 8
 
         self.rotationSpeed = (SpriteImage_ControllerSpinning_Path.Speeds[speedValue] / 0x100000000) * 360
 
