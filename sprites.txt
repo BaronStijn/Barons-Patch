@@ -634,6 +634,30 @@ class SpriteImage_GiantKoopaTroopa(SLib.SpriteImage_StaticMultiple):  # 476
         super().dataChanged()
 
 
+class SpriteImage_FloatingBarrel(SLib.SpriteImage_StaticMultiple):  # 522
+    def __init__(self, parent):
+        super().__init__(
+            parent,
+            3.75
+        )
+
+    @staticmethod
+    def loadImages():
+        SLib.loadIfNotInImageCache('Floating_Barrel', 'floating_barrel.png')
+        SLib.loadIfNotInImageCache('Floating_Barrel_Large', 'floating_barrel_large.png')
+
+    def dataChanged(self):
+
+        if self.parent.spritedata[5] & 1:
+            self.offset = (-40, -24)
+            self.image = ImageCache['Floating_Barrel_Large']
+        else:
+            self.offset = (-16, -12)
+            self.image = ImageCache['Floating_Barrel']
+
+        super().dataChanged()
+
+
 class SpriteImage_GoalRing(SLib.SpriteImage_StaticMultiple):  # 599
     def __init__(self, parent):
         super().__init__(
@@ -677,5 +701,6 @@ ImageClasses = {
     466: SpriteImage_BossController,
     476: SpriteImage_GiantKoopaTroopa,
     497: SpriteImage_BossController,
+    522: SpriteImage_FloatingBarrel,
     599: SpriteImage_GoalRing,
 }
