@@ -1,4 +1,4 @@
-# Miyamoto+
+# Baron's Patch
 ## A patch For the Miyamoto level editor for NSMBU
 `Beta Version 1.5`
 
@@ -19,9 +19,9 @@ Download Miyamoto here: https://github.com/aboood40091/Miyamoto
 
 Unzip the file in \miyamotodata\patches from your Miyamoto folder.
 
-Open Miyamoto and go to File > Change Game > Miyamoto+.
+Open Miyamoto and go to File > Change Game > Baron's Patch.
 
-If done corectly it should now work.
+If done corectly, you should now have the patch installed.
 
 ----------------------------------------------------------------
 
